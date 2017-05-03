@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hr">
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,16 +16,19 @@
     </head>
     <body>
 	
-		
-		@foreach ($items as $item)
-	<h2> 
-	<a href="items/{{ $item->id }} ">{{ $item->title }}</a> </h2>
-	
-	<div>{{ $item->content }} </div>
-	
+<form method="post" action="">
+	{{ csrf_field() }}
 
-    @endforeach
+     Naslov:</br>
+     <input type="text" name="title" />
+	 </br>
+	 Sadržaj:</br>
+	 <textarea name="content"> </textarea>
+     </br>
+     <input type="submit" value="Spremi" />
+	 
+</form>
 	
-       
+	
     </body>
 </html>
