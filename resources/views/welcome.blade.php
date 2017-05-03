@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html lang="hr">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,20 +17,9 @@
     <body>
 	
 	
-	<h2>Dobrodošli</h2>
-     @foreach ($items as $item)
-	 <table border="1" cellspacing="5" >
-	 <tr>
-	 <td>
-	<div style="font-family: Ariel, Sans-serif;font-size:20px; font-weight: 800; background-color: grey; "> <a  font-color="white" href="/item/{{ $item->id }}">
-	 {{ $item->title }}
-	 </a></div>
-	 
-	 
-	 </td>
+	<h2><a href="items">Dobrodošli na AlgebraBlog!</a></h2>
+    
 	
-	 </tr></table>
-	 @endforeach
        
     </body>
 </html>

@@ -18,7 +18,8 @@
 	
 		
 		@foreach ($items as $item)
-	<h2> {{ $item->title }} </h2>
+	<h2> 
+	<a href="{{ $item->id }}">{{ $item->title }}</a> </h2>
 	
 	<div>{{ $item->content }} </div>
 	
