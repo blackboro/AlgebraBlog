@@ -41,3 +41,7 @@ Route::delete('/item/{id}',  'ItemsController@destroy');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
