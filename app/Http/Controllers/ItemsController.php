@@ -8,6 +8,16 @@ use App\Item;
 
 class ItemsController extends Controller
 {
+	//poziva midleware kontrolu za autentikaciju
+	
+	public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
+	
+	
+	
     /**
      * Display a listing of the resource.
      *
