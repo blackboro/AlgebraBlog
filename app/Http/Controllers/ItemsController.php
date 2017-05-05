@@ -110,6 +110,9 @@ class ItemsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+		
+			return redirect()->action('ItemsController@index');
+		
     }
 }
