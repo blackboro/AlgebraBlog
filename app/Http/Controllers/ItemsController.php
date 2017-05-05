@@ -55,7 +55,7 @@ class ItemsController extends Controller
 		
 		$item->title= $data['title'];
 	    $item->content= $data['content'];
-		$item->user_id = 1;
+		$item->user_id = auth()->id();
 		
 		if ( $item->save() ) 
 		{

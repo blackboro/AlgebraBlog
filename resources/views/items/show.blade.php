@@ -7,6 +7,8 @@
 		
 	<h2> {{ $item->title }} </h2>
 	
+	 <h4>Dodano: {{ $item->created_at }} </h4>
+	
 	<div>{{ $item->content }} </div>
 	
 			   
