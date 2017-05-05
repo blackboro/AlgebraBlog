@@ -8,21 +8,18 @@ use App\Item;
 
 class ItemsController extends Controller
 {
-	//poziva midleware kontrolu za autentikaciju
-	
-	public function __construct()
-    {
-        $this->middleware('auth')->except(['index', 'show']);
-    }
-
-	
-	
-	
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+	 
+	 public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+	 
+	 
     public function index()
     {
 		$items = DB::table('items')->get();
@@ -48,24 +45,23 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
-		
 		$data = $request->all();
 		
 		$item = new Item;
-		
 		$item->title= $data['title'];
-	    $item->content= $data['content'];
+		$item->content = $data['content'];
 		$item->user_id = auth()->id();
-		
-		if ( $item->save() ) 
+
+
+		if($item->save())
 		{
 			return redirect()->action('ItemsController@index');
 		}
-		else
+		else 
+		{
 			return redirect()->action('ItemsController@create');
-		
-
-    }
+		}
+	}
 
     /**
      * Display the specified resource.
@@ -75,8 +71,8 @@ class ItemsController extends Controller
      */
     public function show($id)
     {
-		$item = DB::table('items')->find($id);
-        return view('items.show', compact('item'));
+         $item = DB::table('items')->find($id);
+		return view('items.show', compact('item'));
     }
 
     /**
@@ -87,7 +83,7 @@ class ItemsController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -110,9 +106,10 @@ class ItemsController extends Controller
      */
     public function destroy($id)
     {
-        
+        DB::table('items')->where([['user_id', '=', auth()->id()], 
+		['id', '=', $id]])->delete();
 		
-			return redirect()->action('ItemsController@index');
 		
+		return redirect()->action('ItemsController@index');
     }
 }
