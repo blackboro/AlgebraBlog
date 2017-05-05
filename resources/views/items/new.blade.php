@@ -1,20 +1,9 @@
-<!DOCTYPE html>
+@extends('layouts.app')
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>AlgebraBlog</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-     
-	  
-    </head>
-    <body>
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
 	
 <form method="post" action="">
 	{{ csrf_field() }}
@@ -28,7 +17,13 @@
      <input type="submit" value="Spremi" />
 	 
 </form>
+
+			   
+        </div>
+    </div>
+</div>
+@endsection
+
+
 	
 	
-    </body>
-</html>
